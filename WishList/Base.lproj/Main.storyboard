@@ -222,6 +222,9 @@
                                 <state key="normal" title="Save Item">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="APj-lh-9dw" eventType="touchUpInside" id="clO-ST-vOw"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8e-5f-E2w">
                                 <rect key="frame" x="16" y="399" width="288" height="120"/>

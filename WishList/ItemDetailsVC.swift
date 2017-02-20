@@ -91,6 +91,49 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         store6.name = "Dollar Tree"
 
     }
+    
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        
+        let item  = Item(context: context)
+        
+        if let title = titleField.text{
+        
+            item.title = title
+        }
+        
+        if let price = priceField.text{
+            
+            item.price = (price as NSString).doubleValue
+        }
+        
+        if let details = detailsField.text{
+            
+            item.details = details
+        }
+        
+        //inComponent is the column
+        item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        
+        appDelegate.saveContext()
+        
+        navigationController?.popViewController(animated: true)
+        
+        
+    }
 
     
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+

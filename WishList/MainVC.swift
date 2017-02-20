@@ -44,7 +44,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
          */
     }
 
-    
+    //returns the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell",for: indexPath) as! ItemCell
@@ -57,7 +57,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     }
     
     
-    
+    // returns the number of rows in each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let sections = controller.sections{
@@ -71,6 +71,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     }
     
     
+    // returns the number of columns
     func numberOfSections(in tableView: UITableView) -> Int {
         
         if let sections = controller.sections{
@@ -81,10 +82,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         return 0
     }
     
+    //returns the height of each row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     
+    //Method to update the cell(row) info
     func configureCell(cell:  ItemCell, indexPath: NSIndexPath){
         
         //update cell
@@ -95,6 +98,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
     }
     
+    //Fetch the data from the controller
     func attemptFetch(){
     
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
@@ -125,12 +129,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
     }
     
+    //Will be called when the data is changed in the table view
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
         tableView.endUpdates()
     
     }
     
+    //This method is used to insert,delete,update or move the data (Will be called when thd data fetch is perfomed)
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch(type){
@@ -175,7 +181,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
     }
     
-    
+    //Dummy method to generate test data
     func generateTestData(){
     
         let item = Item(context: context)

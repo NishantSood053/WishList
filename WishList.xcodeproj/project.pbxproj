@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A0D9DB11E5A880100B122ED /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D9DB01E5A880100B122ED /* ItemDetailsVC.swift */; };
 		4A0D9DB31E5A8B3400B122ED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D9DB21E5A8B3400B122ED /* CustomTextField.swift */; };
+		4A0D9DB51E5ADD9600B122ED /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D9DB41E5ADD9600B122ED /* KeyboardExtension.swift */; };
 		4AF4D59B1E5A443D008E0A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF4D59A1E5A443D008E0A1B /* AppDelegate.swift */; };
 		4AF4D59D1E5A443D008E0A1B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF4D59C1E5A443D008E0A1B /* MainVC.swift */; };
 		4AF4D5A01E5A443D008E0A1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF4D59E1E5A443D008E0A1B /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		4A0D9DB01E5A880100B122ED /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
 		4A0D9DB21E5A8B3400B122ED /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4A0D9DB41E5ADD9600B122ED /* KeyboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
 		4AF4D5971E5A443D008E0A1B /* WishList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WishList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF4D59A1E5A443D008E0A1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF4D59C1E5A443D008E0A1B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				4A0D9DB21E5A8B3400B122ED /* CustomTextField.swift */,
 				4AF4D5F51E5A5475008E0A1B /* MaterialView.swift */,
 				4AF4D5F71E5A5896008E0A1B /* ItemCell.swift */,
+				4A0D9DB41E5ADD9600B122ED /* KeyboardExtension.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0D9DB51E5ADD9600B122ED /* KeyboardExtension.swift in Sources */,
 				4A0D9DB31E5A8B3400B122ED /* CustomTextField.swift in Sources */,
 				4A0D9DB11E5A880100B122ED /* ItemDetailsVC.swift in Sources */,
 				4AF4D59D1E5A443D008E0A1B /* MainVC.swift in Sources */,

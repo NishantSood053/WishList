@@ -40,6 +40,9 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         if itemToEdit != nil{
             loadItemData()
         }
+        
+        //Dismiss keyboard functionality
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }

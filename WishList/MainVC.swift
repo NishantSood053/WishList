@@ -87,6 +87,33 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         return 150
     }
     
+    //When the item is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Check if we have some object selected
+        if let objects = controller.fetchedObjects, objects.count > 0 {
+            
+            let item = objects[indexPath.row]
+            
+            //Perform the Segue
+            performSegue(withIdentifier: "ItemDetailsVC", sender: item)
+        }
+    }
+    
+    //Send the data to details view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ItemDetailsVC"{
+        
+            if let destination = segue.destination as? ItemDetailsVC{
+                
+                if let item = sender as? Item{
+                
+                    destination.itemToEdit = item
+                }
+            }
+        }
+    }
+    
     //Method to update the cell(row) info
     func configureCell(cell:  ItemCell, indexPath: NSIndexPath){
         

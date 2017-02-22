@@ -33,6 +33,9 @@
                                     <segment title="Title"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="baW-XR-bPl"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OXA-0f-GP6">
                                 <rect key="frame" x="16" y="132" width="288" height="436"/>
@@ -168,7 +171,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-gM-P0j">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-gM-P0j">
                                 <rect key="frame" x="24" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="SUp-bk-JaS"/>
@@ -181,6 +184,9 @@
                                     <constraint firstAttribute="height" constant="100" id="dcW-fy-jdL"/>
                                     <constraint firstAttribute="width" constant="100" id="qzH-Jo-GZt"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="APj-lh-9dw" eventType="touchUpInside" id="Uay-Vu-Nx4"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkn-NC-VdU" customClass="CustomTextField" customModule="WishList" customModuleProvider="target">
                                 <rect key="frame" x="132" y="72" width="172" height="40"/>
@@ -272,12 +278,16 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="FIR-Eo-e7u">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="s6q-aZ-f9o">
                             <color key="tintColor" red="0.78823529410000004" green="0.23529411759999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="APj-lh-9dw" id="QtG-BP-6PF"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailsField" destination="GXI-0k-5jO" id="EvX-hc-ZYP"/>
                         <outlet property="priceField" destination="7Xs-h8-oWb" id="O56-uP-yVE"/>
                         <outlet property="storePicker" destination="O8e-5f-E2w" id="Pxn-IR-6Uu"/>
+                        <outlet property="thumbImage" destination="yJw-gM-P0j" id="eyO-GS-rBB"/>
                         <outlet property="titleField" destination="wkn-NC-VdU" id="rOO-1t-6Tc"/>
                     </connections>
                 </viewController>

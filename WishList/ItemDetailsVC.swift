@@ -9,16 +9,19 @@
 import UIKit
 import CoreData
 
-class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var priceField: CustomTextField!
     @IBOutlet weak var detailsField: CustomTextField!
+    @IBOutlet weak var thumbImage: UIImageView!
     
     var stores  = [Store]()
     
     var itemToEdit: Item?
+    
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,9 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         storePicker.dataSource = self
         
         //generateStores()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         appDelegate.saveContext()
         
@@ -106,6 +112,10 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
         var item: Item!
         
+        let picture = Image(context: context)
+        picture.image = thumbImage.image
+        
+        
         //Check if we are updating the existing item or adding a new one
         if itemToEdit == nil{
         
@@ -115,6 +125,8 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
             item = itemToEdit
         }
+        
+        item.toImage = picture
         
         if let title = titleField.text{
         
@@ -148,6 +160,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             titleField.text = item.title
             priceField.text = "\(item.price)"
             detailsField.text = item.details
+            thumbImage.image = item.toImage?.image as? UIImage
             
             if let store = item.toStore{
             
@@ -171,6 +184,34 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
     }
 
+    @IBAction func deletePressed(_ sender: Any) {
+        
+        if itemToEdit != nil{
+        
+            context.delete(itemToEdit!)
+            appDelegate.saveContext()
+        }
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+    @IBAction func addImage(_ sender: UIButton) {
+    
+        present(imagePicker, animated: true, completion: nil)
+    
+    }
+    
+    //Image picker controller
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+        
+            thumbImage.image = image
+            
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
     
     
 }
